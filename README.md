@@ -13,7 +13,7 @@
 Este projeto é uma API de gestão de biblioteca, desenvolvida para gerenciar livros, com funcionalidades para cadastro, pesquisa, atualização, remoção, e a capacidade de emprestar e devolver livros. A aplicação é voltada para uso interno, com foco em facilitar a organização e controle de livros de uma biblioteca.
 
 # Tecnologias
-Este projeto utiliza o Spring Boot para a construção de uma API RESTful, com persistência em banco de dados MySQL. O gerenciamento das operações de banco de dados é feito com Spring Data JPA. Para a parte de validação de dados, foi utilizado o Hibernate Validator.
+Este projeto utiliza o Spring Boot para a construção de uma API RESTful, com persistência em banco de dados MySQL. O gerenciamento das operações de banco de dados é feito com Spring Data JPA.
 <table align="center">
     <tr>
         <th>
