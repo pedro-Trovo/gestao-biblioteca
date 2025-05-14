@@ -29,5 +29,8 @@ public class Livro {
 
     private Integer anoPublicacao;
 
+    @Column(nullable = false)
+    private Boolean disponivel = true;
+
 }
 

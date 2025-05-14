@@ -2,6 +2,8 @@ package com.projeto.biblioteca_api.controller;
 
 import com.projeto.biblioteca_api.model.Livro;
 import com.projeto.biblioteca_api.service.LivroService;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -57,5 +59,17 @@ public class LivroController {
     @GetMapping("/ano/{ano}")
     public List<Livro> buscarPorAno(@PathVariable Integer ano) {
         return livroService.buscarPorAno(ano);
+    }
+
+    @PutMapping("/emprestar/{id}")
+    public ResponseEntity<String> emprestar(@PathVariable Long id) {
+        livroService.emprestar(id);
+        return ResponseEntity.ok("Livro emprestado com sucesso");
+    }
+    
+    @PutMapping("/devolver/{id}")
+    public ResponseEntity<String> devolver(@PathVariable Long id) {
+        livroService.devolver(id);
+        return ResponseEntity.ok("Livro devolvido com sucesso");
     }
 }

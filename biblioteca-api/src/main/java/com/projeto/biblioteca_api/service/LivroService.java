@@ -56,5 +56,29 @@ public class LivroService {
     public List<Livro> buscarPorAno(Integer ano) {
         return livroRepository.findByAnoPublicacao(ano);
     }
+
+    public void emprestar(Long id) {
+      Livro livro = livroRepository.findById(id)
+              .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+
+      if (livro.getDisponivel()) {
+          livro.setDisponivel(false); 
+          livroRepository.save(livro);
+      } else {
+          throw new RuntimeException("O livro já está emprestado");
+      }
+  }
+
+  public void devolver(Long id) {
+      Livro livro = livroRepository.findById(id)
+              .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+
+      if (!livro.getDisponivel()) {
+          livro.setDisponivel(true);
+          livroRepository.save(livro);
+      } else {
+          throw new RuntimeException("O livro não estava emprestado");
+      }
+  }
 }
 
